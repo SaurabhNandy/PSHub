@@ -9,7 +9,7 @@ body, html {
 }
 
 .bg {
-  background:#111 url("https://github.com/SaurabhNandy/WebProg/blob/master/background.jpg?raw=true");
+  background:#111 url("images/background.jpg");
   height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
