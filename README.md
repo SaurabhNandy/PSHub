@@ -1,5 +1,5 @@
 # PS4 Website
-This a basic website developed using html,css and javascript as a part of our audit course project\
+[PlayStation Hub](https://saurabhnandy.github.io) is a basic website developed using html, css and javascript as a part of our audit course project\
 The website comprises of several pages which include:
   - [x] Home 
   - [x] Games
