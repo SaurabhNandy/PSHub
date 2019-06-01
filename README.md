@@ -11,6 +11,6 @@ The website comprises of several pages which include:
   Added database connectivity to submit reviews
   ---
   To-do list
-  - Add database connection for login and signup
+  -[x] Added database connection for login and signup
   - Improvise responsiveness of the website
   
