@@ -4,7 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body>
@@ -375,28 +375,26 @@
 			</div>	
 
 		<!-- SIGNUP PAGE-->				
-		<div class="signup-modal" id="id01">
-			<form class="signup-modal-content" method="post" action=#>
+		<div class="signup-modal" id="id01" ng-app="Signup" ng-controller="Signcont">
+			<form class="signup-modal-content" method="post" action="register.php">
 				<div class="container">
 					<span onclick="document.getElementById('id01').style.display='none'" class="signup-close" title="Close">&times;</span>
 					<h1 style="color:#FF7700;">Sign Up</h1>
 					
 					<p style="color:#FF7700;">Please fill in this form to create an account.</p>
 					<hr class="signup-hr">
-					<label for="email"><b>Username</b></label>
-					<input type="text" class="modinput" name="email" placeholder="Enter Username" required>
+					<label for="user"><b>Username</b></label>
+					<input type="text" class="modinput" name="user" placeholder="Enter Username" required>
 
 					<label for="psw"><b>Enter Password</b></label>
-					<input type="password" class="modinput" name="psw" placeholder="Enter Password" required>
+					<input type="password" class="modinput" ng-model="pass" name="psw" placeholder="Enter Password" required>
 
 					<label for="psw-repeat"><b>Re-enter Password</b></label>
-					<input type="password" class="modinput" name="psw-repeat" placeholder="Re-enter Password" required>
+					<input type="password" class="modinput" ng-model="repass" ng-blur="checkPass();"name="psw-repeat" placeholder="Re-enter Password" required>
+					<span style="color:{{msgColor}}">{{msg}}</span>
 
-					<label>
-						<input type="checkbox" name="remember" checked>Remember Me
-					</label>
-
-					<p>By creating an account you agree to our <a href="#" class="conditions">Terms and Conditions.</a></p>
+					<input type="checkbox" name="remember" checked>Remember Me
+					<p style="color:#000;">By creating an account you agree to our <a href="#" class="conditions">Terms and Conditions.</a></p>
 					<button onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
 					<button type="submit" class="signupbtn">Sign Up</button>
 
@@ -404,7 +402,24 @@
 			</form>
 		</div>
 	</div>
-	
+	<script>
+		var app=angular.module('Signup',[]);
+		app.controller('Signcont',function($scope){
+			$scope.msg="";
+			$scope.msgColor="";
+			$scope.checkPass=function(){
+				if ($scope.pass!=$scope.repass){
+					$scope.msg="The two passwords didn't match. Re-enter password again";
+					$scope.msgColor="red";
+				}
+				else{
+					$scope.msg="";
+					$scope.msgColor="";
+				}
+			}
+		});
+	</script>
+
 	
 	<script>
 		var modal4=document.getElementById('id01');
